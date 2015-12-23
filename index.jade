@@ -34,25 +34,12 @@ html(lang='en')
             | {% for p in Products %}
             | {% include "product.html" with product=p %}
             | {% endfor %}
-
-            .col-sm-4.col-lg-4.col-md-4
-              h4
-                a(href='#') Like this template?
-              p
-                | If you like this template, then check out
-                a(target='_blank', href='http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/') this tutorial
-                |  on how to build a working review system for your online store!
-              a.btn.btn-primary(target='_blank', href='http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/') View Tutorial
-    // /.container
     .container
       hr
-      // Footer
       footer
         .row
           .col-lg-12
-            p Copyright © Your Website 2014
-    // /.container
-    // jQuery
-    script(src='js/jquery.js')
-    // Bootstrap Core JavaScript
-    script(src='js/bootstrap.min.js')
+            p Copyright © Your Website 2016
+
+    script(src='https://code.jquery.com/jquery-git1.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
