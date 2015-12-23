@@ -1,0 +1,58 @@
+mixin ie(condition)
+    | <!--[!{condition}]>
+    block
+    | <![endif]-->
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title CCBSC Catalog
+    // Bootstrap Core CSS
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+    // Custom CSS
+    link(href='css/shop-homepage.css', rel='stylesheet')
+    +ie('lt IE 9')
+        script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+        script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    include jade/navbar
+    .container
+      .row
+        .col-md-3
+          p.lead {{ Name }}
+          .list-group.categories
+            | {% for c in Categories %}
+            a.category.list-group-item(href='#', data-id="{{c.id}}") {{c.name}}
+            | {%endfor%}
+        .col-md-9
+          include jade/carousel
+          .row
+            | {% for p in Products %}
+            | {% include "product.html" with product=p %}
+            | {% endfor %}
+
+            .col-sm-4.col-lg-4.col-md-4
+              h4
+                a(href='#') Like this template?
+              p
+                | If you like this template, then check out
+                a(target='_blank', href='http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/') this tutorial
+                |  on how to build a working review system for your online store!
+              a.btn.btn-primary(target='_blank', href='http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/') View Tutorial
+    // /.container
+    .container
+      hr
+      // Footer
+      footer
+        .row
+          .col-lg-12
+            p Copyright © Your Website 2014
+    // /.container
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')

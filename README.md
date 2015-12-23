@@ -1,5 +1,11 @@
 # [Start Bootstrap](http://startbootstrap.com/) - [Shop Homepage](http://startbootstrap.com/template-overviews/shop-homepage/)
 
+Updated the Shop Homepage to work in Django, using Jade (becuase Jade helps keep me sane).
+
+Original readme follows.
+
+--------------
+
 [Shop Homepage](http://startbootstrap.com/template-overviews/shop-homepage/) is a basic HTML online store homepage template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
 ## Getting Started
