@@ -3,6 +3,7 @@ mixin ie(condition)
     block
     | <![endif]-->
 doctype html
+include jade/coke2
 html(lang='en')
   head
     meta(charset='utf-8')
@@ -14,13 +15,17 @@ html(lang='en')
     // Bootstrap Core CSS
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
     // Custom CSS
-    link(href='css/shop-homepage.css', rel='stylesheet')
+
+
+    link(href='/media/shop-css/shop-homepage.css', rel='stylesheet')
     +ie('lt IE 9')
         script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
         script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
   body
-    include jade/navbar
+
+    +navbar_coke()
     .container
+
       .row
         .col-md-3
           p.lead {{ Name }}
@@ -29,10 +34,10 @@ html(lang='en')
             a.category.list-group-item(href='#', data-id="{{c.id}}") {{c.name}}
             | {%endfor%}
         .col-md-9
-          include jade/carousel
+          | {% if Banner_Ads %}{% include "shop/carousel.html" with banner_ads=Banner_Ads %}{%endif%}
           .row
             | {% for p in Products %}
-            | {% include "product.html" with product=p %}
+            | {% include "shop/product.html" with product=p %}
             | {% endfor %}
     .container
       hr
@@ -41,5 +46,5 @@ html(lang='en')
           .col-lg-12
             p Copyright © Your Website 2016
 
-    script(src='https://code.jquery.com/jquery-git1.min.js')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')

@@ -2,7 +2,8 @@
     .thumbnail
         img(src='{{ product.url }}', alt='{{ product.title }}')
         .caption
-            h4.pull-right {{ product.price }}
-            h4
-                a(href='#') {{ product.title }}
+            .row
+                .col-sm-8
+                    a(href="#") {{ product.title }}
+                .col-sm-4 {{product.price}}円
             p {{product.description}}
