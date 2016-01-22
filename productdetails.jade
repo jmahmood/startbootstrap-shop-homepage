@@ -1,0 +1,16 @@
+div
+    h1 {{ product.ProductName }}
+    small {{ product.Category }}
+    | {% if productimages %}{% include "shop/carousel.html" with banner_ads=productimages %}{%endif%}
+    .row
+        .col-sm-4 Code: {{  product.ProductCode }}
+        .col-sm-4 Name: {{  product.ProductName }}<br>{{ product.ProductNameKana }}
+        .col-sm-4 Price: {{ product.CatalogDisplayPrice }}円
+    .row
+        .col-sm-4 Supplier: {{product.Supplier}}
+        .col-sm-4 Supplier Code: {{product.SupplierProductCode}}
+    .row
+        .col-sm-4 {{product.MakerName}}<br><small>{{ product.MakerNameKana }}</small>
+
+
+    p {{product.description}}

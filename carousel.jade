@@ -1,0 +1,19 @@
+//
+   Created by jawaad on 12/23/15.
+
+.row.carousel-holder
+    .col-md-12
+        #carousel-example-generic.carousel.slide(data-ride='carousel')
+            ol.carousel-indicators
+                | {% for ba in banner_ads %}
+                li(data-target='#carousel-example-generic', data-slide-to='{{ forloop.counter }}', class='{% if foorloop.first %}active{%endif%}')
+                | {% endfor %}
+            .carousel-inner
+                | {% for ba in banner_ads %}
+               div(class='item {% if foorloop.first %}active{%endif%}')
+                   img.slide-image(height='300', src='{{ba.Banner.url}}')
+                | {% endfor %}
+            a.left.carousel-control(href='#carousel-example-generic', data-slide='prev')
+                span.glyphicon.glyphicon-chevron-left
+            a.right.carousel-control(href='#carousel-example-generic', data-slide='next')
+                span.glyphicon.glyphicon-chevron-right

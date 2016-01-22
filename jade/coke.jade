@@ -1,0 +1,29 @@
+//
+   Created by jawaad on 17/07/2014.
+
+mixin navbar_coke(collapse_id)
+    nav.navbar.coke.navbar-default(role="navigation", class!=attributes.class)
+        .navbar-header
+            button.navbar-toggle(type="button", data-toggle="collapse", data-target="#" + collapse_id)
+                span.sr-only Shopping Cart
+                i.glyphicon.glyphicon-shopping-cart
+                span.badge 10
+            .navbar-btn.jbm-search-btn &nbsp;
+                button.navbar-toggle(type="button"): i.glyphicon.glyphicon-search
+            a.navbar-brand(href="#")
+        .navbar-right
+            if block
+                div(id!=collapse_id).collapse
+                    block
+            else
+                p &nbsp;
+
+mixin postalcodeinput(label, placeholder)
+    .form-group(class!=attributes.class)
+        label(for!=attributes.id)=label
+        .input-group
+            input(type="tel", class="form-control", id!=attributes.id, placeholder=placeholder, name!=attributes.id)
+            span.input-group-btn: button.btn.btn-default.postalcode_submit(type="button")
+                i.glyphicon.glyphicon-search
+                span.japanese &nbsp;住所検索
+                span.english.hidden &nbsp;Search
